@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-// Визначаємо чи це GitHub Pages збірка
-const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
@@ -14,11 +11,9 @@ const nextConfig = {
   images: { 
     unoptimized: true,
   },
-  // Налаштування для GitHub Pages
-  ...(isGitHubPages && {
-    assetPrefix: '/DreamIsland',
-    basePath: '/DreamIsland',
-  }),
+  // Налаштування для GitHub Pages (завжди активні для production)
+  assetPrefix: '/DreamIsland',
+  basePath: '/DreamIsland',
 };
 
 module.exports = nextConfig;
