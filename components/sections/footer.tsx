@@ -2,11 +2,10 @@
 
 import Link from 'next/link';
 import { Music, Youtube, MessageCircle } from 'lucide-react';
-import { useLocale } from '@/hooks/use-locale';
-import { getTranslation } from '@/lib/i18n';
+import { useTranslation } from '@/hooks/use-translation';
 
 export function Footer() {
-  const { locale, isClient } = useLocale();
+  const { t } = useTranslation();
 
   const quickLinks = [
     { href: '#home', key: 'nav.home' },
@@ -40,13 +39,13 @@ export function Footer() {
               Dream Island
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {isClient ? getTranslation(locale, 'footer.description') : 'The music of the future is being created today'}
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">{isClient ? getTranslation(locale, 'footer.quickLinks') : 'Quick Links'}</h3>
+            <h3 className="font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -54,7 +53,7 @@ export function Footer() {
                     href={link.href}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {isClient ? getTranslation(locale, link.key) : link.key}
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -63,7 +62,7 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold mb-4">{isClient ? getTranslation(locale, 'footer.social') : 'Social Media'}</h3>
+            <h3 className="font-semibold mb-4">{t('footer.social')}</h3>
             <div className="space-y-2">
               {socialLinks.map((link) => (
                 <a
@@ -83,7 +82,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2025 Dream Island. {isClient ? getTranslation(locale, 'footer.allRightsReserved') : 'All rights reserved'}.
+            © 2025 Dream Island. {t('footer.allRightsReserved')}.
           </p>
         </div>
       </div>

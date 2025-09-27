@@ -1,27 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
-import { useLocale } from '@/hooks/use-locale';
-import { getTranslation } from '@/lib/i18n';
+import { useTranslation } from '@/hooks/use-translation';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { locale, isClient } = useLocale();
-  const [, forceUpdate] = useState({});
-
-  useEffect(() => {
-    const handleLocaleChange = () => {
-      forceUpdate({});
-    };
-
-    window.addEventListener('localeChange', handleLocaleChange);
-    return () => window.removeEventListener('localeChange', handleLocaleChange);
-  }, []);
+  const { t } = useTranslation();
 
   const navigation = [
     { href: '#home', key: 'nav.home' },
@@ -47,7 +36,7 @@ export function Header() {
               href={item.href}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              {isClient ? getTranslation(locale, item.key) : item.key}
+              {t(item.key)}
             </Link>
           ))}
         </nav>
@@ -79,7 +68,7 @@ export function Header() {
                 className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {isClient ? getTranslation(locale, item.key) : item.key}
+                {t(item.key)}
               </Link>
             ))}
           </nav>

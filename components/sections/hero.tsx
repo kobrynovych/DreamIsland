@@ -2,11 +2,10 @@
 
 import { Play, ExternalLink, Sparkles, Music2, Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useLocale } from '@/hooks/use-locale';
-import { getTranslation } from '@/lib/i18n';
+import { useTranslation } from '@/hooks/use-translation';
 
 export function Hero() {
-  const { locale, isClient } = useLocale();
+  const { t } = useTranslation();
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -41,13 +40,13 @@ export function Hero() {
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-600 via-orange-600 to-pink-600 bg-clip-text text-transparent">
-            {isClient ? getTranslation(locale, 'hero.title') : 'Dream Island'}
+            {t('hero.title')}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-2 font-light">
-            {isClient ? getTranslation(locale, 'hero.subtitle') : 'Island of Dreams'}
+            {t('hero.subtitle')}
           </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            {isClient ? getTranslation(locale, 'hero.description') : 'AI-generated music for your soul'}
+            {t('hero.description')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -57,7 +56,7 @@ export function Hero() {
               onClick={() => window.open('https://www.youtube.com/@islandofadream', '_blank')}
             >
               <Play className="h-5 w-5" />
-              {isClient ? getTranslation(locale, 'hero.watchOnYoutube') : 'Watch on YouTube'}
+              {t('hero.watchOnYoutube')}
             </Button>
             
             <Button 
@@ -67,7 +66,7 @@ export function Hero() {
               onClick={() => document.getElementById('music')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <ExternalLink className="h-5 w-5" />
-              {isClient ? getTranslation(locale, 'hero.exploreMusic') : 'Explore Music'}
+              {t('hero.exploreMusic')}
             </Button>
           </div>
         </div>

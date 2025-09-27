@@ -11,12 +11,20 @@ export function useLocale() {
   useEffect(() => {
     setIsClient(true);
     setCurrentLocale(getCurrentLocale());
+
+    // Listen for locale changes from other components
+    const handleLocaleChange = (event: CustomEvent<Locale>) => {
+      setCurrentLocale(event.detail);
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
+    return () => window.removeEventListener('localeChange', handleLocaleChange as EventListener);
   }, []);
 
   const changeLocale = useCallback((newLocale: Locale) => {
     setCurrentLocale(newLocale);
     setLocale(newLocale);
-    // Force re-render by updating a timestamp
+    // Force re-render by dispatching event to all components
     window.dispatchEvent(new CustomEvent('localeChange', { detail: newLocale }));
   }, []);
 

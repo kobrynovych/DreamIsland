@@ -5,22 +5,21 @@ import { ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useLocale } from '@/hooks/use-locale';
-import { getTranslation } from '@/lib/i18n';
+import { useTranslation } from '@/hooks/use-translation';
 import { musicCategories } from '@/lib/data/music-categories';
 
 export function MusicCategories() {
-  const { locale, isClient } = useLocale();
+  const { t } = useTranslation();
 
   return (
     <section id="music" className="py-24">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-            {isClient ? getTranslation(locale, 'categories.title') : 'Music Categories'}
+            {t('categories.title')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            {isClient ? getTranslation(locale, 'categories.subtitle') : 'Choose your musical mood'}
+            {t('categories.subtitle')}
           </p>
         </div>
 
@@ -30,7 +29,7 @@ export function MusicCategories() {
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={category.coverImage}
-                  alt={isClient ? getTranslation(locale, category.titleKey) : category.titleKey}
+                  alt={t(category.titleKey)}
                   width={800}
                   height={450}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -49,10 +48,10 @@ export function MusicCategories() {
 
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-red-600 transition-colors">
-                  {isClient ? getTranslation(locale, category.titleKey) : category.titleKey}
+                  {t(category.titleKey)}
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {isClient ? getTranslation(locale, category.descriptionKey) : category.descriptionKey}
+                  {t(category.descriptionKey)}
                 </p>
 
                 <Button
@@ -60,7 +59,7 @@ export function MusicCategories() {
                   onClick={() => window.open(category.telegramChannel, '_blank')}
                 >
                   <ExternalLink className="h-4 w-4" />
-                  {isClient ? getTranslation(locale, 'categories.downloadOn') : 'Download on'} Telegram
+                  {t('categories.downloadOn')} Telegram
                 </Button>
               </CardContent>
             </Card>
