@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,7 +11,17 @@ import { getTranslation } from '@/lib/i18n';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { locale } = useLocale();
+  const { locale, isClient } = useLocale();
+  const [, forceUpdate] = useState({});
+
+  useEffect(() => {
+    const handleLocaleChange = () => {
+      forceUpdate({});
+    };
+
+    window.addEventListener('localeChange', handleLocaleChange);
+    return () => window.removeEventListener('localeChange', handleLocaleChange);
+  }, []);
 
   const navigation = [
     { href: '#home', key: 'nav.home' },
@@ -23,7 +33,7 @@ export function Header() {
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <div className="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+          <div className="h-8 w-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
             <Music className="h-4 w-4 text-white" />
           </div>
           Dream Island
@@ -37,7 +47,7 @@ export function Header() {
               href={item.href}
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              {getTranslation(locale, item.key)}
+              {isClient ? getTranslation(locale, item.key) : item.key}
             </Link>
           ))}
         </nav>
@@ -69,7 +79,7 @@ export function Header() {
                 className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {getTranslation(locale, item.key)}
+                {isClient ? getTranslation(locale, item.key) : item.key}
               </Link>
             ))}
           </nav>

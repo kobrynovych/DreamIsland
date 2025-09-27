@@ -6,7 +6,7 @@ import { useLocale } from '@/hooks/use-locale';
 import { getTranslation } from '@/lib/i18n';
 
 export function Footer() {
-  const { locale } = useLocale();
+  const { locale, isClient } = useLocale();
 
   const quickLinks = [
     { href: '#home', key: 'nav.home' },
@@ -21,7 +21,7 @@ export function Footer() {
       label: 'YouTube'
     },
     {
-      href: 'https://t.me/IslandOfAWar',
+      href: 'https://t.me/IslandOfAIT',
       icon: MessageCircle,
       label: 'Telegram'
     }
@@ -34,19 +34,19 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4">
-              <div className="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="h-8 w-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
                 <Music className="h-4 w-4 text-white" />
               </div>
               Dream Island
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {getTranslation(locale, 'footer.description')}
+              {isClient ? getTranslation(locale, 'footer.description') : 'The music of the future is being created today'}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">{getTranslation(locale, 'footer.quickLinks')}</h3>
+            <h3 className="font-semibold mb-4">{isClient ? getTranslation(locale, 'footer.quickLinks') : 'Quick Links'}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -54,7 +54,7 @@ export function Footer() {
                     href={link.href}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {getTranslation(locale, link.key)}
+                    {isClient ? getTranslation(locale, link.key) : link.key}
                   </Link>
                 </li>
               ))}
@@ -63,7 +63,7 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold mb-4">{getTranslation(locale, 'footer.social')}</h3>
+            <h3 className="font-semibold mb-4">{isClient ? getTranslation(locale, 'footer.social') : 'Social Media'}</h3>
             <div className="space-y-2">
               {socialLinks.map((link) => (
                 <a
@@ -83,7 +83,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2025 Dream Island. {getTranslation(locale, 'footer.allRightsReserved')}.
+            © 2025 Dream Island. {isClient ? getTranslation(locale, 'footer.allRightsReserved') : 'All rights reserved'}.
           </p>
         </div>
       </div>

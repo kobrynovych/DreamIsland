@@ -26,13 +26,13 @@ export const translations: Record<string, Translation> = {
       title: 'Музичні категорії',
       subtitle: 'Оберіть свій музичний настрій',
       downloadOn: 'Завантажити в',
-      lofiChill: {
-        title: 'Lo-Fi & Chill',
-        description: 'Розслабляючі мелодії для роботи, навчання та відпочинку'
+      war: {
+        title: 'WAR Music',
+        description: 'Героїчні мелодії та драматичні композиції.'
       },
-      electronicAmbient: {
-        title: 'Electronic Ambient',
-        description: 'Атмосферна електронна музика для медитації та творчості'
+      it: {
+        title: 'IT Music',
+        description: 'Сучасна музика для IT-спеціалістів.'
       }
     },
     footer: {
@@ -67,13 +67,13 @@ export const translations: Record<string, Translation> = {
       title: 'Music Categories',
       subtitle: 'Choose your musical mood',
       downloadOn: 'Download on',
-      lofiChill: {
-        title: 'Lo-Fi & Chill',
-        description: 'Relaxing melodies for work, study, and leisure'
+      war: {
+        title: 'WAR Music',
+        description: 'Epic orchestral music for games, movies and inspiration. Heroic melodies and dramatic compositions.'
       },
-      electronicAmbient: {
-        title: 'Electronic Ambient',
-        description: 'Atmospheric electronic music for meditation and creativity'
+      it: {
+        title: 'IT Music',
+        description: 'Modern electronic music for programmers and IT specialists. From synthwave to ambient.'
       }
     },
     footer: {
