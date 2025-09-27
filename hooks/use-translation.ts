@@ -20,7 +20,7 @@ export function useTranslation() {
   }, []);
 
   const t = (key: string): string => {
-    if (!isClient) return key;
+    // Для SSG завжди повертаємо переклад з дефолтною мовою
     return getTranslation(locale, key);
   };
 

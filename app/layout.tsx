@@ -11,10 +11,11 @@ export const metadata: Metadata = {
   description: 'Dream Island - AI-generated music for your soul. Discover unique soundscapes created by artificial intelligence.',
   keywords: ['AI music', 'artificial intelligence', 'Dream Island', 'lo-fi', 'ambient', 'electronic'],
   authors: [{ name: 'Dream Island' }],
+  metadataBase: new URL('https://kobrynovych.github.io/DreamIsland'),
   openGraph: {
     title: 'Dream Island | AI-Generated Music',
     description: 'AI-generated music for your soul. Discover unique soundscapes created by artificial intelligence.',
-    url: 'https://your-github-username.github.io/dream-island',
+    url: 'https://kobrynovych.github.io/DreamIsland',
     siteName: 'Dream Island',
     locale: 'uk_UA',
     type: 'website',

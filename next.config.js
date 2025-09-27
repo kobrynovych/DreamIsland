@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+
+// Визначаємо чи це GitHub Pages збірка
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
@@ -9,11 +13,12 @@ const nextConfig = {
   },
   images: { 
     unoptimized: true,
-    loader: 'custom',
-    loaderFile: './image-loader.js'
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/DreamIsland' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/DreamIsland' : '',
+  // Налаштування для GitHub Pages
+  ...(isGitHubPages && {
+    assetPrefix: '/DreamIsland',
+    basePath: '/DreamIsland',
+  }),
 };
 
 module.exports = nextConfig;
