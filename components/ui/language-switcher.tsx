@@ -21,23 +21,33 @@ export function LanguageSwitcher() {
     );
   }
 
+  const languages = [
+    { code: 'uk', name: 'Українська', flag: '🇺🇦' },
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+  ];
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe className="h-4 w-4" />
-          {locale.toUpperCase()}
+          <span className="hidden sm:inline">
+            {languages.find(lang => lang.code === locale)?.flag}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => changeLocale('uk')} className="gap-2">
-          {locale === 'uk' && <Check className="h-4 w-4" />}
-          <span className={locale !== 'uk' ? 'ml-6' : ''}>🇺🇦 Українська</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => changeLocale('en')} className="gap-2">
-          {locale === 'en' && <Check className="h-4 w-4" />}
-          <span className={locale !== 'en' ? 'ml-6' : ''}>🇺🇸 English</span>
-        </DropdownMenuItem>
+        {languages.map((language) => (
+          <DropdownMenuItem
+            key={language.code}
+            onClick={() => changeLocale(language.code as 'uk' | 'en')}
+            className="flex items-center gap-3 cursor-pointer"
+          >
+            <span>{language.flag}</span>
+            <span>{language.name}</span>
+            {locale === language.code && <Check className="h-4 w-4 ml-auto" />}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -18,26 +18,39 @@ export function Header() {
     { href: '#music', key: 'nav.music' },
   ];
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    setIsMenuOpen(false);
+  };
   return (
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+        <button 
+          onClick={() => scrollToSection('#home')}
+          className="flex items-center gap-2 font-bold text-xl hover:scale-105 transition-transform duration-200"
+        >
           <div className="h-8 w-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
             <Music className="h-4 w-4 text-white" />
           </div>
           Dream Island
-        </Link>
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navigation.map((item) => (
-            <Link
+            <button
               key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              onClick={() => scrollToSection(item.href)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground hover:text-red-600 transition-all duration-200 hover:scale-105"
             >
               {t(item.key)}
-            </Link>
+            </button>
           ))}
         </nav>
 
@@ -58,22 +71,21 @@ export function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
+      <div className={`md:hidden bg-background border-b border-border transition-all duration-300 ease-in-out overflow-hidden ${
+        isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+      }`}>
           <nav className="container mx-auto px-4 py-4 space-y-2">
             {navigation.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
-                className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-left py-3 px-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-red-50 dark:hover:bg-red-950 rounded-md transition-all duration-200"
               >
                 {t(item.key)}
-              </Link>
+              </button>
             ))}
           </nav>
-        </div>
-      )}
+      </div>
     </header>
   );
 }

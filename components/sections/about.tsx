@@ -36,12 +36,12 @@ export function About() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="border-0 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:scale-105">
+            <Card key={index} className="border-0 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/10 group">
               <CardContent className="p-8 text-center">
-                <div className="h-16 w-16 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="h-16 w-16 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-red-500/25 transition-all duration-300 group-hover:scale-110">
                   <feature.icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-red-600 transition-colors duration-200">
                   {t(feature.titleKey)}
                 </h3>
               </CardContent>

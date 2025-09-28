@@ -25,7 +25,7 @@ export function MusicCategories() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {musicCategories.map((category) => (
-            <Card key={category.id} className="group overflow-hidden border-0 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+            <Card key={category.id} className="group overflow-hidden border-0 bg-background/60 backdrop-blur-sm hover:bg-background/80 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-red-500/10">
               <div className="relative aspect-video overflow-hidden">
                 <Image
                   src={category.coverImage}
@@ -34,11 +34,12 @@ export function MusicCategories() {
                   height={450}
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover:from-black/70 transition-all duration-300" />
+                <div className="absolute inset-0 bg-red-500/0 group-hover:bg-red-500/10 transition-all duration-300" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex flex-wrap gap-2 mb-2">
                     {category.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                      <Badge key={tag} variant="secondary" className="bg-white/20 text-white border-white/30 backdrop-blur-sm hover:bg-red-500/30 transition-colors duration-200">
                         {tag}
                       </Badge>
                     ))}
@@ -55,7 +56,7 @@ export function MusicCategories() {
                 </p>
 
                 <Button
-                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 shadow-lg hover:shadow-xl hover:shadow-red-500/25 transition-all duration-300 hover:scale-105"
                   onClick={() => window.open(category.telegramChannel, '_blank')}
                 >
                   <ExternalLink className="h-4 w-4" />
