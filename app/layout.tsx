@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Dream Island | AI-Generated Music',
     description: 'AI-generated music for your soul. Discover unique soundscapes created by artificial intelligence.',
-    url: 'https://kobrynovych.github.io/DreamIsland',
+    url: 'https://kobrynovych.github.io/DreamIsland/',
     siteName: 'Dream Island',
     locale: 'uk_UA',
     type: 'website',
