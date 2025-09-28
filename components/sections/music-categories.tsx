@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ExternalLink } from 'lucide-react';
+import { Play, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -51,17 +51,27 @@ export function MusicCategories() {
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-red-600 transition-colors">
                   {t(category.titleKey)}
                 </h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed min-h-[52px]">
                   {t(category.descriptionKey)}
                 </p>
 
-                <Button
-                  className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 shadow-lg hover:shadow-xl hover:shadow-red-500/25 transition-all duration-300 hover:scale-105"
-                  onClick={() => window.open(category.telegramChannel, '_blank')}
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  {t('categories.downloadOn')} Telegram
-                </Button>
+                <div className="space-y-3">
+                  <Button
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 shadow-lg hover:shadow-xl hover:shadow-red-500/25 transition-all duration-300 hover:scale-105"
+                    onClick={() => window.open('https://www.youtube.com/@IslandOfADream/playlists', '_blank')}
+                  >
+                    <Play className="h-4 w-4" />
+                    {t('hero.watchOnYoutube')}
+                  </Button>
+
+                  <Button
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 shadow-lg hover:shadow-xl hover:shadow-red-500/25 transition-all duration-300 hover:scale-105"
+                    onClick={() => window.open(category.telegramChannel, '_blank')}
+                  >
+                    <Download className="h-4 w-4" />
+                    {t('categories.downloadOn')} Telegram
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}

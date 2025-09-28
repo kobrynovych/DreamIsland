@@ -38,7 +38,7 @@ export function Header() {
           <div className="h-8 w-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
             <Music className="h-4 w-4 text-white" />
           </div>
-          Dream Island
+          {t('hero.title')}
         </button>
 
         {/* Desktop Navigation */}

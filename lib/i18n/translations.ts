@@ -9,23 +9,22 @@ export const translations: Record<string, Translation> = {
       contact: 'Контакти'
     },
     hero: {
-      title: 'Dream Island',
-      subtitle: 'Острів Мрії',
-      description: 'Музика, створена штучним інтелектом для вашої душі. Відкрийте для себе унікальні звукові пейзажі.',
+      title: 'Острів Мрії',
+      description: 'Музика, створена штучним інтелектом. Атмосфера для відпочинку, натхнення та внутрішньої гармонії.',
       watchOnYoutube: 'Дивитися на YouTube',
       exploreMusic: 'Досліджувати музику'
     },
     about: {
       title: 'Про канал',
-      description: 'Dream Island — це унікальний YouTube-канал, де штучний інтелект створює неповторні музичні композиції. Кожен трек — це подорож до світу мрій і фантазій.',
+      description: 'Острів Мрії — це унікальний YouTube-канал, де штучний інтелект створює неповторні музичні композиції. Кожен трек — це подорож до світу мрій і фантазій.',
       aiGenerated: 'Музика створена ШІ',
       regularUploads: 'Регулярні завантаження',
-      freeDownloads: 'Безкоштовне завантаження'
+      freeDownloads: 'Безкоштовне скачування'
     },
     categories: {
       title: 'Музичні категорії',
       subtitle: 'Оберіть свій музичний настрій',
-      downloadOn: 'Завантажити в',
+      downloadOn: 'Завантажити з',
       war: {
         title: 'WAR Music',
         description: 'Героїчні мелодії та драматичні композиції.'
@@ -51,8 +50,7 @@ export const translations: Record<string, Translation> = {
     },
     hero: {
       title: 'Dream Island',
-      subtitle: 'Island of Dreams',
-      description: 'AI-generated music for your soul. Discover unique soundscapes created by artificial intelligence.',
+      description: 'Music created by artificial intelligence. An atmosphere for relaxation, inspiration, and inner harmony.',
       watchOnYoutube: 'Watch on YouTube',
       exploreMusic: 'Explore Music'
     },
@@ -69,11 +67,11 @@ export const translations: Record<string, Translation> = {
       downloadOn: 'Download on',
       war: {
         title: 'WAR Music',
-        description: 'Epic orchestral music for games, movies and inspiration. Heroic melodies and dramatic compositions.'
+        description: 'Heroic melodies and dramatic compositions.'
       },
       it: {
         title: 'IT Music',
-        description: 'Modern electronic music for programmers and IT specialists. From synthwave to ambient.'
+        description: 'Modern music for IT specialists.'
       }
     },
     footer: {

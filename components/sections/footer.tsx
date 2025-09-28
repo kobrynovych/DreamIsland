@@ -15,14 +15,19 @@ export function Footer() {
 
   const socialLinks = [
     {
-      href: 'https://www.youtube.com/@islandofadream',
+      href: 'https://www.youtube.com/@IslandOfADream/playlists',
       icon: Youtube,
       label: 'YouTube'
     },
     {
+      href: 'https://t.me/IslandOfAWar',
+      icon: MessageCircle,
+      label: 'Telegram WAR Music'
+    },
+    {
       href: 'https://t.me/IslandOfAIT',
       icon: MessageCircle,
-      label: 'Telegram'
+      label: 'Telegram IT Music'
     }
   ];
 
@@ -36,7 +41,7 @@ export function Footer() {
               <div className="h-8 w-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
                 <Music className="h-4 w-4 text-white" />
               </div>
-              Dream Island
+              {t('hero.title')}
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
               {t('footer.description')}
@@ -61,7 +66,7 @@ export function Footer() {
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className="min-w-[188px]">
             <h3 className="font-semibold mb-4">{t('footer.social')}</h3>
             <div className="space-y-2">
               {socialLinks.map((link) => (
@@ -70,10 +75,10 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
                 >
-                  <link.icon className="h-4 w-4" />
-                  {link.label}
+                  <link.icon className="h-4 w-4 flex-shrink-0" />
+                  <span className="truncate">{link.label}</span>
                 </a>
               ))}
             </div>
@@ -82,7 +87,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2025 Dream Island. {t('footer.allRightsReserved')}.
+            © {new Date().getFullYear()} {t('hero.title')}. {t('footer.allRightsReserved')}.
           </p>
         </div>
       </div>

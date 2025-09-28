@@ -59,9 +59,6 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-red-600 via-orange-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
             {t('hero.title')}
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-2 font-light">
-            {t('hero.subtitle')}
-          </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             {t('hero.description')}
           </p>
@@ -70,7 +67,7 @@ export function Hero() {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white gap-2 px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-red-500/25"
-              onClick={() => window.open('https://www.youtube.com/@islandofadream', '_blank')}
+              onClick={() => window.open('https://www.youtube.com/@IslandOfADream/playlists', '_blank')}
             >
               <Play className="h-5 w-5" />
               {t('hero.watchOnYoutube')}
